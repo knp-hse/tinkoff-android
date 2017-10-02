@@ -16,11 +16,40 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        prodDebug {
+            debuggable true
+            jniDebuggable true
+            renderscriptDebuggable true
+            minifyEnabled false
+        }
+        debug {
+            debuggable true
+            jniDebuggable true
+            renderscriptDebuggable true
+            minifyEnabled false
+        }
+    }
+
+    flavorDimensions "color"
+
+    productFlavors {
+        main {
+            minSdkVersion 15
+            dimension "color"
+        }
+        green {
+            minSdkVersion 15
+            dimension "color"
+        }
+        blue {
+            minSdkVersion 15
+            dimension "color"
+        }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
