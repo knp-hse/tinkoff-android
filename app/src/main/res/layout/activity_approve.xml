@@ -4,40 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.test.hw1.MainActivity">
+    tools:context="com.example.test.hw1.ApproveActivity">
 
-    <EditText
-        android:id="@+id/editText"
+    <Button
+        android:id="@+id/button_ok"
         android:layout_width="wrap_content"
-        android:layout_height="63dp"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Text"
-        app:layout_constraintBottom_toTopOf="@+id/button_share"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="313dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginTop="300dp"
+        android:text="OK"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_share"
+        android:id="@+id/button_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="300dp"
-        android:text="Share"
+        android:layout_marginBottom="313dp"
+        android:layout_marginTop="300dp"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_ok"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="396dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="96dp"
+        android:text="TextView"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
-
-    <Button
-        android:id="@+id/button_act"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ExplicitActivity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_share" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
