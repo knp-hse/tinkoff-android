@@ -1,5 +1,6 @@
 package com.example.test.hw1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,17 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent sendIntent = new Intent(getApplicationContext(), ThreadActivity1.class);
+                startActivity(sendIntent);
+            }
+        });
 
+        Button button2 = findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sendIntent = new Intent(getApplicationContext(), ThreadActivity2.class);
+                startActivity(sendIntent);
             }
         });
     }

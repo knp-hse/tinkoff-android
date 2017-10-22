@@ -3,17 +3,26 @@ package com.example.test.hw1;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 
 
-public class TaskFragment extends Fragment {
+public class StringTaskFragment extends Fragment {
 
     interface TaskCallbacks {
         void onPostExecute(String[] strings);
     }
 
     private TaskCallbacks callbacks;
+    private String[] data;
+    private GetStringsTask task;
+
+    public String[] getData() {
+        return data;
+    }
+
+    public void stopTask() {
+        task.cancel(true);
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -26,7 +35,7 @@ public class TaskFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
 
-        GetStringsTask task = new GetStringsTask();
+        task = new GetStringsTask();
         task.execute();
     }
 
@@ -38,13 +47,22 @@ public class TaskFragment extends Fragment {
 
 
     private class GetStringsTask extends AsyncTask<Void, Integer, String[]> {
-
         @Override
         protected String[] doInBackground(Void... ignore) {
-            SystemClock.sleep(5000);
+            for (int i = 0; i < 50; i++) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if (isCancelled())
+                    return null;
+            }
             String[] ans = new String[5];
             for (int i = 0; i < 5; i++)
                 ans[i] = "This is string " + i;
+            if (isCancelled())
+                return null;
             return ans;
         }
 
@@ -52,6 +70,7 @@ public class TaskFragment extends Fragment {
         @Override
         protected void onPostExecute(String[] strings) {
             if (callbacks != null) {
+                data = strings;
                 callbacks.onPostExecute(strings);
             }
         }
