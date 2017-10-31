@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="LabeledGraphView">
+        <attr name="xLabelHeight" format="dimension"/>
+        <attr name="yLabelHeight" format="dimension"/>
+        <attr name="coordHeight" format="dimension"/>
+        <attr name="coordWidth" format="dimension"/>
+        <attr name="coordLineLength" format="dimension"/>
+        <attr name="xOffset" format="dimension"/>
+        <attr name="yOffset" format="dimension"/>
+        <attr name="restOffset" format="dimension"/>
+        <attr name="showGrid" format="boolean"/>
+    </declare-styleable>
+</resources>
